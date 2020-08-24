@@ -1,4 +1,5 @@
 <img src="https://img.itch.zone/aW1nLzM0NDY5MTEucG5n/original/H3Rt8p.png">
+
 # FlappyBirdAI
 ###### Creating an AI that is able to play Flappy Bird
 
