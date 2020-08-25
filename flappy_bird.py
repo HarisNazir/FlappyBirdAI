@@ -152,7 +152,7 @@ class Base():
         win.blit(self.IMG, (self.x1, self.y))
         win.blit(self.IMG, (self.x2, self.y))
 
-def draw_window(win, bird, pipes, base, score):
+def draw_window(win, birds, pipes, base, score):
     win.blit(BG_IMG, (0, 0))
     for pipe in pipes:
         pipe.draw(win)
@@ -161,10 +161,11 @@ def draw_window(win, bird, pipes, base, score):
     win.blit(text, (WIN_WIDTH - 10 -10 - text.get_width(), 10))
     
     base.draw(win)
-    bird.draw(win)
+    for bird in birds:
+        bird.draw(win)
     pygame.display.update()
 
-def main(genomes, config):
+def evaluate_genomes(genomes, config):
     nets = []
     ge = []
     birds = []
@@ -206,7 +207,7 @@ def main(genomes, config):
             bird.move()
             ge[x].fitness += 0.1
 
-            output = nets[x].activate((bird.y), abs(bird.y - pipes[pipe_ind].height, abs(bird.y - pipes[pipe_ind].bottom)))
+            output = nets[birds.index(bird)].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
 
             if output[0] > 0.5:
                 bird.jump()
@@ -246,7 +247,7 @@ def main(genomes, config):
                 ge.pop(x)
 
         base.move()
-        draw_window(win, bird, pipes, base, score)
+        draw_window(win, birds, pipes, base, score)
 
 
 def run(config_path):
@@ -258,9 +259,9 @@ def run(config_path):
     stats = neat.StatisticsReporter()
     population.add_reporter
 
-    winner = population.run(,50)
+    winner = population.run(evaluate_genomes,50)
 
 if __name__ == "__main__":
     local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, "config_feedforward.txt")
+    config_path = os.path.join(local_dir, "config-feedforward.txt")
     run(config_path)
