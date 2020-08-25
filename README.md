@@ -7,5 +7,13 @@ I was around 12 when Flappy Bird was released and I remember it being the bigges
 
 ## Technolgies used:
 1. Python
-2. NEAT API
+2. NEAT-Python
 3. Pygame
+
+# NEAT-Python
+- <b>Inputs</b> into NN (Neural Network) = bird_y, top_pipe, bottom_pipe (Potential for just one pipe however both pipes will speed up training time of NN)
+- <b>Outputs</b> of NN = bird_jump
+- <b>Activation Function</b> = Tan(H)  (Value will be between 1 and -1 which helps us determine if we jump or not)
+- <b>Population Size</b> = (Gen 0 = 100) -> (Gen 1 = 100)
+- <b>Fitness Function</b> (How do we evaluate which bird is the best) = distance (which bird makes it the furthest)
+- <b>Max Generations</b> = 30
