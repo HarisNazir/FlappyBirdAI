@@ -1,4 +1,5 @@
 <img src="https://img.itch.zone/aW1nLzM0NDY5MTEucG5n/original/H3Rt8p.png">
+
 # FlappyBirdAI
 ###### Creating an AI that is able to play Flappy Bird
 
@@ -7,6 +8,7 @@ I was around 12 when Flappy Bird was released and I remember it being the bigges
 
 ## Technolgies used:
 1. Python
+<<<<<<< HEAD
 2. NEAT-Python
 3. Pygame
 
@@ -17,3 +19,7 @@ I was around 12 when Flappy Bird was released and I remember it being the bigges
 - <b>Population Size</b> = (Gen 0 = 100) -> (Gen 1 = 100)
 - <b>Fitness Function</b> (How do we evaluate which bird is the best) = distance (which bird makes it the furthest)
 - <b>Max Generations</b> = 30
+=======
+2. NEAT API
+3. Pygame
+>>>>>>> c4f8fe6073901a7ce0ea57528eb04079259e436c
